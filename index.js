@@ -4,6 +4,7 @@ for (var i=0; i<document.querySelectorAll(".drum").length; i++){
   document.querySelectorAll(".drum")[i].addEventListener( "click", function(){
     var newtest=this.innerHTML;
     makesound(newtest);
+    animation(newtest);
 });
 
 
@@ -12,6 +13,7 @@ for (var i=0; i<document.querySelectorAll(".drum").length; i++){
 
 document.addEventListener("keydown",function(event){
 makesound(event.key);
+animation(event.key);
 });
 
 
@@ -48,4 +50,15 @@ function makesound(few){
     default:
 
   }
+}
+
+
+function animation(keypressed){
+
+var testy = document.querySelector ("." + keypressed);
+
+testy.classList.add("pressed");
+setTimeout(function(){
+testy.classList.remove("pressed");
+}, 100);
 }
